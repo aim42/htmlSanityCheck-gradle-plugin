@@ -1,8 +1,11 @@
 Html Sanity Check Gradle Plugin
 ===============================
 :version: 0.1.0.SNAPSHOT
-:asciidoctor-gradle-plugin-url: TODO http://asciidoctor.org
-TODO :issues: https://github.com/gernotstarke/
+
+:plugin-url: https://github.com/aim42/htmlSanityCheck-gradle-plugin
+:plugin-issues: https://github.com/aim42/htmlSanityCheck-gradle-plugin/issues
+
+:asciidoctor-gradle-plugin-url: https://github.com/asciidoctor/asciidoctor-gradle-plugin
 
 :asciidoc-url: http://asciidoctor.org
 :gradle-url: http://gradle.org/
@@ -73,19 +76,31 @@ Finds all '<a href="XYZ">' where XYZ is not defined.
 <h2 id="missinG">Bookmark-Header</h2>
 ----
 
+In this example, the bookmark is _misspelled_.
 TODO: If an anchor XYZ is undefined, the plugin will look for _similar_ definitions
 (using a sophisticated string-similarity algorithm).
 
 === Missing Images
-
+Images, referenced in '<img src="XYZ"...' tags, refer to external files. The existence of
+these files is checked by the plugin.
 
 === Multiple Definitions of Bookmarks or ID's
 If any is defined more than once, any anchor linking to it will be confused :-)
 
-== Contributions and Origin
-The plugin heavily relies on code provided by the {gradle-url}[Gradle project].
 
-Inspiration on code organization, implementation and testing of the plugin
+== Ideas and Origin
+
+* The plugin heavily relies on code provided by the {gradle-url}[Gradle project].
+
+* Inspiration on code organization, implementation and testing of the plugin
 came from the {asciidoctor-gradle-plugin-url}[Asciidoctor-Gradle-Plugin] by .
 
-Initial implementation by {gernotstarke}[Gernot Starke].
+* Code for string similarity calculation by Ralph Rice.
+
+* Initial implementation by {gernotstarke}[Gernot Starke].
+
+
+== Contributing
+Please report {plugin-issues}[issues or suggestions].
+
+Want to improve the plugin: Fork our {htmlSanityCheck-gradle-plugin}[repository] and send a pull request.
