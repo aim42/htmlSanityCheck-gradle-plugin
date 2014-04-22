@@ -1,0 +1,5 @@
+.gradle
+.idea
+build
+htmlSanityCheck.iml
+README.html
