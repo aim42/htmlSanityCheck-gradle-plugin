@@ -1,3 +1,5 @@
+// see end-of-file for license information
+
 package org.aim42
 
 import org.gradle.api.Project

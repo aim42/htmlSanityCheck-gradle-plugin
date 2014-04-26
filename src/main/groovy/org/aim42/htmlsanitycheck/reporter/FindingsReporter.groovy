@@ -2,11 +2,11 @@
 
 package org.aim42.htmlsanitycheck.reporter
 
-import org.aim42.CheckingField
+import org.aim42.htmlsanitycheck.checker.CheckingResults
 
 abstract class FindingsReporter {
 
-    private ArrayList<CheckingField> checkingFields
+    private ArrayList<CheckingResults> checkingResults
 
     int totalNrOfChecksPerformed
     int totalNrOfFindings
@@ -16,7 +16,7 @@ abstract class FindingsReporter {
 
 
     public FindingsReporter( ) {
-        checkingFields = new ArrayList<CheckingField>()
+        checkingResults = new ArrayList<CheckingResults>()
         totalNrOfChecksPerformed = 0
 
         percentSuccessful = 0
@@ -25,8 +25,8 @@ abstract class FindingsReporter {
 
 
     // primarily used for testing
-    public void addCheckingField( CheckingField checkingField) {
-        this.checkingFields.add( checkingField )
+    public void addCheckingField( CheckingResults checkingField) {
+        this.checkingResults.add( checkingField )
     }
 
     abstract void reportFindings()
@@ -36,11 +36,11 @@ abstract class FindingsReporter {
 
     public void calculateSummary() {
         totalNrOfChecksPerformed = 0
-        checkingFields.each { checkingField ->
+        checkingResults.each { checkingField ->
             totalNrOfChecksPerformed +=  checkingField.nrOfItemsChecked }
 
         totalNrOfFindings = 0
-        checkingFields.each { checkingField ->
+        checkingResults.each { checkingField ->
             totalNrOfFindings += checkingField.nrOfProblems()
         }
 

@@ -3,18 +3,12 @@
 package org.aim42.htmlsanitycheck.checker
 
 /**
- * The collected findings for a specific checkingField (i.e. missing images).
+ * The collected results for a specific checkingResults (i.e. missing images).
  *
  * @author Gernot Starke <gs@gernotstarke.de>
  */
 
 class CheckingResults {
-    String headline         // i.e. Image References
-    String name             // i.e. missing images
-
-    // source-item is checked against target-item
-    String sourceItemName   // i.e. image-reference, anchor/link
-    String targetItemName   // i.e. image-file, id/bookmark
 
     int nrOfItemsChecked
 
@@ -24,23 +18,25 @@ class CheckingResults {
      * Initialize everything to empty or zero.
      */
     public CheckingResults() {
-        // initialize everything to empty
-        headline  = ""
-        name = ""
-        sourceItemName = ""
-        targetItemName = ""
-
         nrOfItemsChecked = 0
-
         findings = new ArrayList<Finding>()
     }
 
     /**
+     * called when an issue has been found
+     */
+    public void newFinding() {
+        f = new Finding()
+    }
+
+
+    /**
      * add a single finding to the collection of Finding instances
+     * @deprecated shall only be used for testing
      * @param singleFinding
      */
-    public void addFinding( Finding singleFinding ) {
-        findings.add( singleFinding )
+    public void addFinding(Finding singleFinding) {
+        findings.add(singleFinding)
     }
 
     /**
@@ -52,13 +48,12 @@ class CheckingResults {
 
     /**
      *
-     * @return (int) the nr of issues found for this checkingField.
+     * @return ( int ) the nr of issues found for this checkingResults.
      */
     public int nrOfProblems() {
         return findings.size()
     }
 }
-
 
 /************************************************************************
  Copyright 2014 Gernot Starke and aim42 contributors

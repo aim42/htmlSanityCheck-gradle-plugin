@@ -1,32 +1,7 @@
 // see end-of-file for license information
 
-package org.aim42.htmlsanitycheck.checker
 
-/**
- * A single "finding" from any check, i.e.:
- * - a missing image file
- * - a missing label/id/bookmark (== broken link)
- * - a duplicate label/id/bookmark
- */
-class Finding {
-
-    String item // i.e. which image is missing, which link/anchor is undefined
-
-    ArrayList<String> suggestions
-
-    public Finding() {
-        item = ""
-        suggestions = new ArrayList<String>()
-    }
-
-    public Finding( String item ) {
-        this.item = item
-        suggestions = new ArrayList<String>()
-    }
-
-    // TODO handle suggestions
-}
-
+package org.aim42.htmlsanitycheck.checker;
 /************************************************************************
  Copyright 2014 Gernot Starke and aim42 contributors
 
@@ -43,4 +18,3 @@ class Finding {
  See the License for the specific language governing permissions and
  limitations under the License.
  ************************************************************************/
-
