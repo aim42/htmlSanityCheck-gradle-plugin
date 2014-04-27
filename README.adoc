@@ -98,7 +98,7 @@ checks are still possible...
 == Fundamentals
 This tiny piece rests on incredible groundwork:
 
-* {http://jsoup.org}[Jsoup HTML parser] and analysis toolkit - robust and easy-to-use.
+* http://jsoup.org[Jsoup HTML parser] and analysis toolkit - robust and easy-to-use.
 
 * IntelliJ IDEA - my (Gernot) best (programming) friend.
 
@@ -113,7 +113,7 @@ This tiny piece rests on incredible groundwork:
 came from the {asciidoctor-gradle-plugin-url}[Asciidoctor-Gradle-Plugin] by .
 
 * Code for string similarity calculation by
-  {https://github.com/rrice/java-string-similarity}[Ralph Rice].
+  https://github.com/rrice/java-string-similarity[Ralph Rice].
 
 * Initial implementation by {gernotstarke}[Gernot Starke].
 
