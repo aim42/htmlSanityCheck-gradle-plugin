@@ -1,0 +1,25 @@
+= Test File for HTML Sanity Check
+
+
+:imagesdir: ./images
+
+== About
+
+This plugin has been created in context of the <<aim42>> project
+
+
+[[aim42]]
+== Architecture Improvement
+
+* A link to this <<aim42, title>>.
+* A second link, but <<24mia, misspelled>>
+
+== An existing image
+image::aim42.png["alternate-text", title="caption"]
+
+=== A Missing Images
+image::test.jpg["test-image, not existing", title="caption"]
+
+
+[[some-anchor]]
+here we explain 'some-anchor' topic...
