@@ -366,55 +366,124 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_about">About</h2>
+<h2 id="_image_directory_setting">Image Directory Setting</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This plugin has been created in context of the <a href="#aim42">Architecture Improvement</a> project</p>
+<p>Via the following directive, the image directory is set to "./images":</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:imagesdir: ./images</pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="aim42">Architecture Improvement</h2>
+<h2 id="_internal_links">Internal Links</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>A link to this <a href="#aim42">title</a>.</p>
+<p>A link to the subheading below: <a href="#aim42">title</a>.</p>
 </li>
 <li>
 <p>A second link, but <a href="#24mia">misspelled</a></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>This plugin has been created in context of the <a href="#aim42">aim42 Architecture Improvement</a> project</p>
+</div>
+<div class="sect2">
+<h3 id="aim42">aim42 Architecture Improvement</h3>
+
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_an_existing_image">An existing image</h2>
+<h2 id="_images">Images</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>One image from the image directory - created with this asciidoc:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>image::aim42.png["alternate-text", title="aim42-logo", width="150"]</pre>
+</div>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/aim42.png" alt="alternate-text">
+<img src="./images/aim42.png" alt="alternate-text" width="150">
 </div>
-<div class="title">Figure 1. caption</div>
+<div class="title">Figure 1. aim42-logo</div>
 </div>
 <div class="sect2">
-<h3 id="_a_missing_images">A Missing Images</h3>
+<h3 id="_a_missing_image">A Missing Image</h3>
+<div class="paragraph">
+<p>Another image tag - but this image (with the strange name)
+does not exist in the file system:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>image::missing-image-urjk8ybepw8.jpg["missing...", title="missing-image"]</pre>
+</div>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/test.jpg" alt="test-image, not existing">
+<img src="./images/missing-image-urjk8ybepw8.jpg" alt="missing...">
 </div>
-<div class="title">Figure 2. caption</div>
+<div class="title">Figure 2. missing-image</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_duplicate_id_s_or_bookmarks">Duplicate ID&#8217;s or Bookmarks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Asciidoc, ID&#8217;s are defined using double brackets</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[[some-anchor]]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>One can <a href="#some-anchor">reference</a> those id&#8217;s/bookmarks
+with <a href="#some-anchor">Second definition</a> directive in asciidoc.</p>
 </div>
 <div id="some-anchor" class="paragraph">
-<p>here we explain <em>some-anchor</em> topic&#8230;</p>
+<p>In this section, we define this id:</p>
 </div>
+<div class="literalblock">
+<div class="content">
+<pre>[[some-anchor]]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>for the first time.
+Where will the browser jump to, if we <a href="#some-anchor">click here?</a></p>
+</div>
+<div class="sect2">
+<h3 id="some-anchor">Second definition</h3>
+<div class="paragraph">
+<p>In this section, we define it the second time.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_external_links">External Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(to be done)</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-04-29 23:53:13 CEST
+Last updated 2014-04-30 11:31:55 CEST
 </div>
 </div>
 </body>
