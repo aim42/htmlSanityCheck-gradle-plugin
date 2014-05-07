@@ -1,11 +1,6 @@
-// see end-of-file for license information
-
 package org.aim42.htmlsanitycheck;
-/**
- * contains the worker classes for the html sanity checker,
- * which basically is a link and reference checker
- */
-/*=======================================================================
+
+/************************************************************************
  Copyright 2014 Gernot Starke and aim42 contributors
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,4 +15,4 @@ package org.aim42.htmlsanitycheck;
  either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
- =======================================================================*/
+ ************************************************************************/

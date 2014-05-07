@@ -3,36 +3,41 @@
 package org.aim42.htmlsanitycheck.checker
 
 /**
- * The collected results for a specific checkingResults (i.e. missing images).
+ * collects results for a specific checking field
+ * (i.e. missing images).
  *
  * @author Gernot Starke <gs@gernotstarke.de>
  */
 
-class CheckingResults {
+class CheckingResultsCollector {
 
-    int nrOfItemsChecked
+    public final String headline         // i.e. Image References
 
-    ArrayList<Finding> findings
+    public int nrOfItemsChecked
+
+    public ArrayList<Finding> findings
 
     /**
      * Initialize everything to empty or zero.
      */
-    public CheckingResults() {
-        nrOfItemsChecked = 0
-        findings = new ArrayList<Finding>()
+    public CheckingResultsCollector( String headline ) {
+
+        this.headline = headline
+        this.nrOfItemsChecked = 0
+        this.findings = new ArrayList<Finding>()
     }
 
     /**
-     * called when an issue has been found
+     * add a single finding to the collection,
+     * based upon name.
+     * @param message: what kind of finding is it?
      */
-    public void newFinding() {
-        f = new Finding()
+    public void newFinding( String message ) {
+        addFinding( new Finding( message ))
     }
-
 
     /**
      * add a single finding to the collection of Finding instances
-     * @deprecated shall only be used for testing
      * @param singleFinding
      */
     public void addFinding(Finding singleFinding) {
@@ -53,9 +58,22 @@ class CheckingResults {
     public int nrOfProblems() {
         return findings.size()
     }
+
+
+    @Override
+    public String toString() {
+        int nrOfProblems = nrOfProblems()
+        return "Checking results for $headline" + '\n' +
+                " $nrOfItemsChecked items checked" + '\n' +
+                " $nrOfProblems finding(s)" + '\n' +
+                findings.each { it.toString() + '\n'}
+
+    }
+
+
 }
 
-/************************************************************************
+/*=====================================================================
  Copyright 2014 Gernot Starke and aim42 contributors
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -70,5 +88,5 @@ class CheckingResults {
  either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
- ************************************************************************/
+ =====================================================================*/
 

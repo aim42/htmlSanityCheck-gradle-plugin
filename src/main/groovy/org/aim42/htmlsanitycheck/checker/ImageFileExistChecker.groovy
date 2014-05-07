@@ -1,22 +1,23 @@
 package org.aim42.htmlsanitycheck.checker
 
-import com.gargoylesoftware.htmlunit.html.HtmlImage
-
-import static org.junit.Assert.assertTrue
+import org.aim42.htmlsanitycheck.htmlparser.HtmlElement
 
 // see end-of-file for license information
 
 
 class ImageFileExistChecker extends Checker {
 
-    private List<HtmlImage> images
+    private List<HtmlElement> images
+    private String baseDir
+
+
 
     @Override
-    public CheckingResults check() {
+    public CheckingResultsCollector check() {
         super.initResults()
 
         //get list of all image-tags "<img..." in html file
-        images = findAllImageTags()
+        images = pageToCheck.getAllImageTags()
 
         checkAllImages()
 
@@ -27,44 +28,41 @@ class ImageFileExistChecker extends Checker {
 
     private ArrayList<Finding> checkAllImages() {
 
-        for (HtmlImage hi : images) {
-            checkSingleImage(hi)
+        images.each { image ->
+            checkSingleImage(image)
 
         }
     }
 
-    private void checkSingleImage(HtmlImage hi) {
-        String imagePath
-        imagePath = hi.getSrcAttribute();
+    private void checkSingleImage(HtmlElement image) {
+        String relativePathToCurrentImage = image.getSrcAttribute()
 
         // bookkeeping one more check...
         checkingResults.incNrOfChecks()
 
         // check only "local" image references
-        if (imagePath.startsWith("images/")) {
-            doesFileExist(imagePath);
+        if (!relativePathToCurrentImage.startsWith("http:")) {
+            doesFileExist(relativePathToCurrentImage);
         }
     }
 
 
-    private List<HtmlImage> findAllImageTags() {
-        // we need to filter for images containing 'src="images/"'...
+    /**
+     * check if the file at relativePathToImageFile exists
+     *
+    * @param relativePathToImageFile == XYZ in <img src="XYZ">
+     **/
+    private void doesFileExist(String relativePathToImageFile) {
+        // problem: if the relativePath is "./images/fileName.jpg",
+        // we need to add the appropriate path prefix...
 
-        // the resulting images contains a list of the following form:
-        // < [HtmlImage[<img src="images/aim42-logo.png" alt="aim42-logo">],
-        //   [HtmlImage[<img src="https://travis-ci.org/aim42/aim42.png?branch=master" alt="unknown">],...>
+        String absolutePath = baseDir + relativePathToImageFile[1..relativePathToImageFile.length()-1]
 
-        return (List<HtmlImage>) pageToCheck.getByXPath("//img");
-    }
-
-
-
-    private void doesFileExist(String currentImagePath) {
-        String imageFilePath = buildDirPath + currentImagePath;
-        File imageFile = new File(imageFilePath);
+        File imageFile = new File(absolutePath);
 
         if (!imageFile.exists()) {
-          checkingResults.newFinding( "image " + imageFilePath + " missing")
+            String findingText = "image $relativePathToImageFile missing"
+            checkingResults.newFinding(findingText)
         }
 
     }

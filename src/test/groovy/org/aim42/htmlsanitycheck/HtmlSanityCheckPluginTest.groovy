@@ -2,7 +2,6 @@
 
 package org.aim42.htmlsanitycheck
 
-import org.aim42.HtmlSanityCheckTask
 import org.junit.Test
 import org.gradle.testfixtures.ProjectBuilder
 import org.gradle.api.Project

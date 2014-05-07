@@ -1,6 +1,6 @@
 // see end-of-file for license information
 
-package org.aim42
+package org.aim42.htmlsanitycheck
 
 import org.gradle.api.Project
 import org.gradle.api.Plugin

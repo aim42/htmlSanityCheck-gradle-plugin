@@ -1,8 +1,10 @@
 package org.aim42.htmlsanitycheck.checker
 
+import org.aim42.htmlsanitycheck.htmlparser.HtmlPage
+
+
 // see end-of-file for license information
 
-import com.gargoylesoftware.htmlunit.html.HtmlPage
 
 /**
  * Base class for the different concrete checkers (i.e. ImageChecker)
@@ -23,23 +25,22 @@ abstract class Checker {
     String targetItemName   // i.e. image-file, id/bookmark
 
     // i.e. image-links, internal links (anchors/bookmarks)
-    CheckingResults checkingResults
+    CheckingResultsCollector checkingResults
 
     HtmlPage pageToCheck
 
 
     protected void initResults() {
-        checkingResults = new CheckingResults()
+        checkingResults = new CheckingResultsCollector( headline )
 
     }
 
     /**
-     * perform a particular kind of checks, i.e. check if all
-     * referenced image files really exist on their expected location
+     * Perform a particular kind of checks, i.e. duplicate-definition-check
      *
      * @return collected results of this checking-group
      */
-    abstract public CheckingResults check( )
+    abstract public CheckingResultsCollector check( )
 
     // TODO: check for valid parameters
 }
