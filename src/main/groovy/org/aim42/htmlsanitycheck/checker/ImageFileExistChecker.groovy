@@ -1,6 +1,6 @@
 package org.aim42.htmlsanitycheck.checker
 
-import org.aim42.htmlsanitycheck.htmlparser.HtmlElement
+import org.aim42.htmlsanitycheck.html.HtmlElement
 
 // see end-of-file for license information
 
@@ -26,7 +26,7 @@ class ImageFileExistChecker extends Checker {
     }
 
 
-    private ArrayList<Finding> checkAllImages() {
+    private void checkAllImages() {
 
         images.each { image ->
             checkSingleImage(image)

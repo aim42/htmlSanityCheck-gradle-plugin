@@ -1,4 +1,4 @@
-package org.aim42.htmlsanitycheck.htmlparser
+package org.aim42.htmlsanitycheck.html
 
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

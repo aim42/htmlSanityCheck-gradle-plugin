@@ -1,6 +1,6 @@
 package org.aim42.htmlsanitycheck.checker
 
-import org.aim42.htmlsanitycheck.htmlparser.HtmlPage
+import org.aim42.htmlsanitycheck.html.HtmlPage
 
 
 // see end-of-file for license information
@@ -24,7 +24,7 @@ abstract class Checker {
     String sourceItemName   // i.e. image-reference, anchor/link
     String targetItemName   // i.e. image-file, id/bookmark
 
-    // i.e. image-links, internal links (anchors/bookmarks)
+    // i.e. image-links, internal links (anchors/hrefs)
     CheckingResultsCollector checkingResults
 
     HtmlPage pageToCheck

@@ -1,4 +1,4 @@
-package org.aim42.htmlsanitycheck.htmlparser
+package org.aim42.htmlsanitycheck.html
 
 import org.junit.Test
 
