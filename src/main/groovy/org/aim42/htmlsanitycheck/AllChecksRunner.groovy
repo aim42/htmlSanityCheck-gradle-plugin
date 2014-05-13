@@ -3,7 +3,7 @@ package org.aim42.htmlsanitycheck
 import org.aim42.htmlsanitycheck.checker.Checker
 import org.aim42.htmlsanitycheck.checker.CheckingResultsCollector
 import org.aim42.htmlsanitycheck.checker.ImageFileExistChecker
-import org.aim42.htmlsanitycheck.checker.UndefinedLinksChecker
+import org.aim42.htmlsanitycheck.checker.internalLinksChecker
 import org.aim42.htmlsanitycheck.html.HtmlPage
 
 // see end-of-file for license information
@@ -26,7 +26,7 @@ import org.aim42.htmlsanitycheck.html.HtmlPage
 class AllChecksRunner {
 
     static Checker imageChecker
-    static Checker internalLinksChecker
+    static Checker undefinedInternalLinksChecker
     static Checker duplicateIdChecker
 
     static CheckingResultsCollector imageCheckingResults
@@ -73,14 +73,14 @@ class AllChecksRunner {
     }
 
     public void runInternalLinkCheck() {
-        internalLinksChecker = new UndefinedLinksChecker(
+        undefinedInternalLinksChecker = new internalLinksChecker(
                 pageToCheck: pageToCheck,
                 headline: "Undefined Internal Links Check",
                 name: "matching id\'s for hrefs",
                 sourceItemName: "href",
                 targetItemName: "id" )
 
-        internalLinkCheckingResults = internalLinksChecker.check()
+        internalLinkCheckingResults = undefinedInternalLinksChecker.check()
 
         println internalLinkCheckingResults.toString()
 

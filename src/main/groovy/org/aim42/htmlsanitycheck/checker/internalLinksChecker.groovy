@@ -5,7 +5,7 @@ import org.aim42.htmlsanitycheck.html.HtmlElement
 // see end-of-file for license information
 
 
-class UndefinedLinksChecker extends Checker {
+class internalLinksChecker extends Checker {
 
 
     private List<String> ids    // id="XYZ"

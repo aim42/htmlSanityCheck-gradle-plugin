@@ -2,8 +2,8 @@
 
 package org.aim42.htmlsanitycheck.checker
 
-import org.aim42.htmlsanitycheck.htmlparser.HtmlElement
-import org.aim42.htmlsanitycheck.htmlparser.HtmlPage
+import org.aim42.htmlsanitycheck.html.HtmlElement
+import org.aim42.htmlsanitycheck.html.HtmlPage
 import org.junit.Test
 
 class ImageFileExistCheckerTest extends GroovyTestCase {
