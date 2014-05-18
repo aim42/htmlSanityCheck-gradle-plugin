@@ -13,7 +13,7 @@ class UndefinedLinksCheckerTest extends GroovyTestCase {
     HtmlPage htmlPage
     CheckingResultsCollector collector
 
-       @Test
+    @Test
     public void testOneGoodOneBrokenLink() {
         String HTML_WITH_A_TAGS_AND_ID = '''
            <html>

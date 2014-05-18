@@ -120,7 +120,7 @@ came from the {asciidoctor-gradle-plugin-url}[Asciidoctor-Gradle-Plugin] by .
 == Development
 Several sources provided help during development:
 
-* [Gradle guide on writing custom plugins]
+* http://www.gradle.org/docs/current/userguide/custom_plugins.html[Gradle guide on writing custom plugins]
 * The code4reference tutorial an Gradle custom plugins,
 http://code4reference.com/2012/08/gradle-custom-plugin-part-1/[part 1] and
 http://code4reference.com/2012/08/gradle-custom-plugin-part-2/[part 2].
