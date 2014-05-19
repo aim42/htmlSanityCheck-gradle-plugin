@@ -1,0 +1,32 @@
+:toc:
+
+== Development Guide
+
+=== Required Steps for Gradle Plugin Development
+
+==== Directory Structure
+
+----
+|-htmlSanityCheck-gradle-plugin
+   |  |-plugin
+   |    |-src
+   |      |-main
+   |      |  |-groovy
+   |      |  | |-org
+   |      |  |   |-aim42
+   |      |  |     |-gradle
+   |      |  |-resources
+   |      |  | |-META-INF
+   |      |  |   |-gradle-plugins
+   |      |-test
+   |      |  |-groovy
+   |      |  | |-com
+   |      |  |   |-code4reference
+   |      |  |     |-gradle
+   |-user
+----
+
+=== Building the Plugin
+
+
+=== Uploading to Public Archives

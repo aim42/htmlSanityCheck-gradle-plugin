@@ -95,6 +95,9 @@ Although external links might suffer from network issues or site maintenance,
 checks are still possible...
 
 
+== Development
+There is a small and largely unpolished link:DevelopmentGuide.html[development guide].
+
 == Fundamentals
 This tiny piece rests on incredible groundwork:
 
