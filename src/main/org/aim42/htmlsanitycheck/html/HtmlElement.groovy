@@ -44,6 +44,11 @@ class HtmlElement {
 
     }
 
+
+    @Override
+    public String toString() {
+        return element.toString()
+    }
 }
 
 /*========================================================================
