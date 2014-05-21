@@ -28,7 +28,7 @@ class UndefinedLinksCheckerTest extends GroovyTestCase {
 
         htmlPage = new HtmlPage( HTML_WITH_A_TAGS_AND_ID )
 
-        undefinedInternalLinksChecker = new internalLinksChecker(
+        undefinedInternalLinksChecker = new InternalLinksChecker(
                 pageToCheck: htmlPage,
                 headline: "Undefined Internal Links Check Test"
         )
@@ -60,7 +60,7 @@ class UndefinedLinksCheckerTest extends GroovyTestCase {
 
         htmlPage = new HtmlPage( HTML_WITH_TWO_TAGS_AND_ID )
 
-        undefinedInternalLinksChecker = new internalLinksChecker(
+        undefinedInternalLinksChecker = new InternalLinksChecker(
                 pageToCheck: htmlPage,
                 headline: "Undefined Internal Links Check Test"
         )
@@ -84,7 +84,7 @@ class UndefinedLinksCheckerTest extends GroovyTestCase {
 
         htmlPage = new HtmlPage( HTML_WITH_TWO_LINKS_NO_ID)
 
-        undefinedInternalLinksChecker = new internalLinksChecker(
+        undefinedInternalLinksChecker = new InternalLinksChecker(
                 pageToCheck: htmlPage,
                 headline: "Undefined Internal Links Check Test"
         )

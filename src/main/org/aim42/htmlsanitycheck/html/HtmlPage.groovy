@@ -63,7 +63,7 @@ class HtmlPage {
      * builds a list of all 'id="XYZ"' attributes
      * @return ArrayList of all hrefs
      */
-    public final ArrayList<HtmlElement> getAllBookmarks() {
+    public final ArrayList<HtmlElement> getAllIds() {
         Elements elements = document.getElementsByAttribute( "id")
 
         return toHtmlElementsCollection( elements )

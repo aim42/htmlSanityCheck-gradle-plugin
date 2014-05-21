@@ -2,8 +2,9 @@ package org.aim42.htmlsanitycheck
 
 import org.aim42.htmlsanitycheck.checker.Checker
 import org.aim42.htmlsanitycheck.checker.CheckingResultsCollector
+import org.aim42.htmlsanitycheck.checker.DuplicateIdChecker
 import org.aim42.htmlsanitycheck.checker.ImageFileExistChecker
-import org.aim42.htmlsanitycheck.checker.internalLinksChecker
+import org.aim42.htmlsanitycheck.checker.InternalLinksChecker
 import org.aim42.htmlsanitycheck.html.HtmlPage
 
 // see end-of-file for license information
@@ -31,6 +32,7 @@ class AllChecksRunner {
 
     static CheckingResultsCollector imageCheckingResults
     static CheckingResultsCollector internalLinkCheckingResults
+    static CheckingResultsCollector duplicateIdsResults
 
     static String fileName
     static String docDirPath
@@ -73,7 +75,7 @@ class AllChecksRunner {
     }
 
     public void runInternalLinkCheck() {
-        undefinedInternalLinksChecker = new internalLinksChecker(
+        undefinedInternalLinksChecker = new InternalLinksChecker(
                 pageToCheck: pageToCheck,
                 headline: "Undefined Internal Links Check",
                 name: "matching id\'s for hrefs",
@@ -83,8 +85,23 @@ class AllChecksRunner {
         internalLinkCheckingResults = undefinedInternalLinksChecker.check()
 
         println internalLinkCheckingResults.toString()
-
     }
+
+
+    public void runDuplicateIdCheck() {
+        duplicateIdChecker = new  DuplicateIdChecker(
+                pageToCheck: pageToCheck,
+                headline: "Duplicate Ids Check",
+                name: "multiple definition of id\'s",
+                sourceItemName: "id",
+                targetItemName: "id"
+        )
+        duplicateIdsResults = duplicateIdChecker.check()
+
+        println duplicateIdsResults.toString()
+    }
+
+
 
     /**
      * reads the html page
@@ -111,6 +128,7 @@ class AllChecksRunner {
 
         allChecksRunner.runImageCheck()
         allChecksRunner.runInternalLinkCheck()
+        allChecksRunner.runDuplicateIdCheck()
 
     }
 }
