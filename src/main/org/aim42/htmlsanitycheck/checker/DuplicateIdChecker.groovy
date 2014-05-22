@@ -47,12 +47,15 @@ class DuplicateIdChecker extends Checker {
 
         // if idString appears more than once in tagsWithId,
         // we found
-        List<String> tagsWithSpecificId = getAllTagsWithSpecificId( idString, tagsWithId)
+        List<String> tagsWithSpecificId =
+                getAllTagsWithSpecificId( idString, tagsWithId).collect { it.toString() }
 
         if (tagsWithSpecificId.size() > 1) {
-            checkingResults.newFinding(  "$idString has multiple definitions:" + tagsWithSpecificId.toString())
+            String findingStrings = tagsWithSpecificId.join(",")
+            checkingResults.newFinding(  "$idString has multiple definitions:" + findingStrings )
         }
     }
+
 
     /**
      * find all tags with specific id value
